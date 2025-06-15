@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+/* Button */
+.btn-danger {
+    background-color: #bd0001;
+    border-radius: 10px;
+    border-color: #bd0001;
+    padding: 10px 45px;
+    color: white;
+}
+.btn-outline-danger {
+    background-color: transparent;
+    border-radius: 10px;
+    border-color: #bd0001;
+    padding: 10px 45px;
+    color: #bd0001;
+}
+
+.btn-outline-white {
+    background-color: transparent;
+    border-radius: 10px;
+    border-color: white;
+    padding: 10px 45px;
+    color: white;
+}
+
+/* Navbar */
+.nav-item .nav-link {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.scroll-nav-active {
+    background-color: white;
+    /* border-bottom: 1px solid #bd0001; */
+    box-shadow: 1px 1px 11px -1px rgba(1, 1, 1, 0.08);
+}
+
+.text-nav-active {
+    color: black;
+}
+
+/* Hero */
+#hero {
+    background: url("../image/hero-image.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+}
+
+.hero-title {
+    padding-top: 200px;
+}
+
+.hero-text {
+    font-size: 65px;
+    font-weight: 600;
+}
+
+/* Responsive layar kecil 450 */
+@media screen and (min-width: 450px) {
+    .hero-text {
+        font-size: 35px;
+        font-weight: 600;
+    }
+}
+@media screen and (min-width: 550px) {
+    .hero-text {
+        font-size: 35px;
+        font-weight: 600;
+    }
+}
+@media screen and (min-width: 800px) {
+    .hero-text {
+        font-size: 65px;
+        font-weight: 600;
+    }
+}
+
+/* join */
+.stripe {
+    height: 5px;
+    width: 40px;
+    background-color: #bd0001;
+}
+
+#video {
+    background-image: url("../../assets/image/il-bg-video.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+
+/* foto */
+/* Paralax Background */
+.section-foto {
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax {
+    background-image: url("../../assets/image/bg-foto.jpeg");
+}
+
+.stripe-putih {
+    height: 5px;
+    width: 40px;
+    background-color: #ffffff;
+}
+
+/* ================================== */
+/* PERBAIKAN RESPONSIVE NAVBAR MOBILE */
+/* ================================== */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        max-height: 75vh; /* Batasi tinggi menu agar tidak kepanjangan */
+        overflow-y: auto; /* Buat bisa di-scroll jika perlu */
+    }
+
+    /* Perkecil font menu di mobile */
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: 16px;
+        margin-left: 0; /* Hapus margin agar lebih rapat */
+        margin-right: 0;
+    }
+
+    /* Sesuaikan tombol di mobile */
+    .navbar .d-flex {
+        width: 100%;
+    }
+
+    .navbar .btn-danger {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px 20px;
+    }
+}
