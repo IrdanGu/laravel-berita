@@ -14,24 +14,31 @@
                     <a class="nav-link active" aria-current="page" href="#">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Profil</a>
+                    <a class="nav-link active" href="#profil">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Berita</a>
+                    <a class="nav-link active" href="#berita">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Prestasi</a>
+                    <a class="nav-link active" href="#prestasi">Prestasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Gallery</a>
+                    <a class="nav-link active" href="#gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Kontak</a>
+                    <a class="nav-link active" href="#kontak">Kontak</a>
                 </li>
 
             </ul>
             <div class="d-flex">
-                <button class="btn btn-danger">Register</button>
+                @auth
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-dark">logout</button>
+                    </form>
+                @else
+                    <button class="btn btn-danger">Register</button>
+                @endauth
             </div>
         </div>
     </div>
