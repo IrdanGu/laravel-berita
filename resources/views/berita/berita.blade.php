@@ -7,41 +7,25 @@
             <div class="header-berita text-center">
                 <h2 class="fw-bold">Berita Kegiatan Sekolah</h2>
             </div>
+
+
             <div class="row py-5" data-aos="flip-up">
-                <div class="col-lg-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/image/il-berita-01.png') }}" class="img-fluid mb-3" alt="">
-                        <div class="konten-berita"></div>
-                        <p class="mb-3 text-secondary">21/05/2005</p>
-                        <h4 class="fw-bold mb-3">Pengajian Bulananan SDN 1 Cibuntu</h4>
-                        <p class="text-secondary">#sekolahmodern</p>
-                        <a href="" class="text-decoration-none text-danger">Selengkapnya</a>
+                @foreach ($artikels as $item)
+                    <div class="col-lg-4">
+                        <div class="card border-0">
+                            <img src="{{ asset('storage/artikel/' . $item->image) }}" class="img-fluid mb-3" alt="">
+                            <div class="konten-berita"></div>
+                            <p class="mb-3 text-secondary">{{ $item->create_at }}</p>
+                            <h4 class="fw-bold mb-3">{{ $item->judul }}</h4>
+                            <p class="text-secondary">#sekolahmodern</p>
+                            <a href="/detail/{{ $item->slug }}" class="text-decoration-none text-danger">Selengkapnya</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/image/il-berita-01.png') }}" class="img-fluid mb-3" alt="">
-                        <div class="konten-berita"></div>
-                        <p class="mb-3 text-secondary">21/05/2005</p>
-                        <h4 class="fw-bold mb-3">Pengajian Bulananan SDN 1 Cibuntu</h4>
-                        <p class="text-secondary">#sekolahmodern</p>
-                        <a href="" class="text-decoration-none text-danger">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/image/il-berita-01.png') }}" class="img-fluid mb-3" alt="">
-                        <div class="konten-berita"></div>
-                        <p class="mb-3 text-secondary">21/05/2005</p>
-                        <h4 class="fw-bold mb-3">Pengajian Bulananan SDN 1 Cibuntu</h4>
-                        <p class="text-secondary">#sekolahmodern</p>
-                        <a href="" class="text-decoration-none text-danger">Selengkapnya</a>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
-            <div class="footer-berita text-center">
-                <a href="" class="btn btn-outline-danger">Berita Lainnya</a>
-            </div>
+
         </div>
     </section>
     {{-- Berita --}}

@@ -148,3 +148,7 @@ body {
         padding: 10px 20px;
     }
 }
+
+.navbar-text-white {
+    color: white;
+}

@@ -69,22 +69,22 @@
                         <h5 class="fw-bold mb-3">Follow kami</h5>
                         <div class="d-flex mb-3">
                             <a href="#" target="_blank" class="text-decoration-none text-dark">
-                                <img src="{{ asset('assets/icon/yt.svg') }}" height="30" width="30"
+                                <img src="{{ asset('assets/icon/youtube.svg') }}" height="30" width="30"
                                     class="me-4" alt="Instagram">
                             </a>
 
                             <a href="#" target="_blank" class="text-decoration-none text-dark">
-                                <img src="{{ asset('assets/icon/yt.svg') }}" height="30" width="30"
+                                <img src="{{ asset('assets/icon/instagram.svg') }}" height="30" width="30"
                                     class="me-4" alt="Facebook">
                             </a>
 
                             <a href="#" target="_blank" class="text-decoration-none text-dark">
-                                <img src="{{ asset('assets/icon/yt.svg') }}" height="30" width="30"
+                                <img src="{{ asset('assets/icon/whatsapp.svg') }}" height="30" width="30"
                                     class="me-4" alt="TikTok">
                             </a>
 
                             <a href="#" target="_blank" class="text-decoration-none text-dark">
-                                <img src="{{ asset('assets/icon/yt.svg') }}" height="30" width="30"
+                                <img src="{{ asset('assets/icon/instagram.svg') }}" height="30" width="30"
                                     class="me-4" alt="YouTube">
                             </a>
                         </div>
@@ -95,12 +95,12 @@
                         <h5 class="font-inter fw-bold mb-3">Kontak kami</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item mb-2"><a href="#"
-                                    class="nav-link p-0 text-muted">info@alhijrah.sch.id</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-xxx-xxx</a>
+                                    class="nav-link p-0 text-muted">info@cibutu.sch.id</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-123-456</a>
                             </li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-xxx-xxx</a>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-123-456</a>
                             </li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-xxx-xxx</a>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-123-456</a>
                             </li>
                         </ul>
                     </div>
@@ -108,7 +108,7 @@
                     {{-- kolom 4 --}}
                     <div class="col-12 col-md-3 mb-3">
                         <h5 class="font-inter fw-bold mb-3">Alamat Sekolah</h5>
-                        <p> Jl. Haji Nawi, No 115, Bandung, Jawa Barat.</p>
+                        <p> Jl. Cibuntu, No 115, Kunigan, Jawa Barat.</p>
                     </div>
                 </div>
             </footer>

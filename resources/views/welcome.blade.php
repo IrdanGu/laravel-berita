@@ -65,39 +65,25 @@
                 <h2 class="fw-bold">Berita Kegiatan Sekolah</h2>
             </div>
             <div class="row py-5" data-aos="flip-up">
-                <div class="col-lg-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/image/il-berita-01.png') }}" class="img-fluid mb-3" alt="">
-                        <div class="konten-berita"></div>
-                        <p class="mb-3 text-secondary">21/05/2005</p>
-                        <h4 class="fw-bold mb-3">Pengajian Bulananan SDN 1 Cibuntu</h4>
-                        <p class="text-secondary">#sekolahmodern</p>
-                        <a href="" class="text-decoration-none text-danger">Selengkapnya</a>
+
+
+                @foreach ($artikels as $item)
+                    <div class="col-lg-4">
+                        <div class="card border-0">
+                            <img src="{{ asset('storage/artikel/' . $item->image) }}" class="img-fluid mb-3" alt="">
+                            <div class="konten-berita"></div>
+                            <p class="mb-3 text-secondary">{{ $item->create_at }}</p>
+                            <h4 class="fw-bold mb-3">{{ $item->judul }}</h4>
+                            <p class="text-secondary">#sekolahmodern</p>
+                            <a href="/detail/{{ $item->slug }}" class="text-decoration-none text-danger">Selengkapnya</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/image/il-berita-01.png') }}" class="img-fluid mb-3" alt="">
-                        <div class="konten-berita"></div>
-                        <p class="mb-3 text-secondary">21/05/2005</p>
-                        <h4 class="fw-bold mb-3">Pengajian Bulananan SDN 1 Cibuntu</h4>
-                        <p class="text-secondary">#sekolahmodern</p>
-                        <a href="" class="text-decoration-none text-danger">Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('assets/image/il-berita-01.png') }}" class="img-fluid mb-3" alt="">
-                        <div class="konten-berita"></div>
-                        <p class="mb-3 text-secondary">21/05/2005</p>
-                        <h4 class="fw-bold mb-3">Pengajian Bulananan SDN 1 Cibuntu</h4>
-                        <p class="text-secondary">#sekolahmodern</p>
-                        <a href="" class="text-decoration-none text-danger">Selengkapnya</a>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
             <div class="footer-berita text-center">
-                <a href="" class="btn btn-outline-danger">Berita Lainnya</a>
+                <a href="/berita" class="btn btn-outline-danger">Berita Lainnya</a>
             </div>
         </div>
     </section>
@@ -131,10 +117,11 @@
     <section id="video" class="py-5">
         <div class="container py-5">
             <div class="text-center">
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/A927ale9-vI?si=66gypaZ37PTBTXSc"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VTTJpaRxfHU?si=L8TL9huBtbC9a-f6"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
             </div>
         </div>
     </section>
@@ -147,25 +134,28 @@
             </div>
             <div class="row py-5">
                 <div class="col-lg-4">
-                    <iframe width="100%" height="225"
-                        src="https://www.youtube.com/embed/A927ale9-vI?si=66gypaZ37PTBTXSc" title="YouTube video player"
+                    <iframe width="400" height="225"
+                        src="https://www.youtube.com/embed/-IcqdG-uSPw?si=pldZNBwXc3oPmqDG" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="col-lg-4">
-                    <iframe width="100%" height="225"
-                        src="https://www.youtube.com/embed/A927ale9-vI?si=66gypaZ37PTBTXSc" title="YouTube video player"
+                    <iframe width="400" height="225"
+                        src="https://www.youtube.com/embed/-IcqdG-uSPw?si=pldZNBwXc3oPmqDG" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="col-lg-4">
-                    <iframe width="100%" height="225"
-                        src="https://www.youtube.com/embed/A927ale9-vI?si=66gypaZ37PTBTXSc" title="YouTube video player"
+                    <iframe width="400" height="225"
+                        src="https://www.youtube.com/embed/-IcqdG-uSPw?si=pldZNBwXc3oPmqDG" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
             </div>
 
@@ -213,7 +203,7 @@
     <section id="fasilitas" class="py-5">
         <div class="container py-5">
             <div class="text-center">
-                <h3 class="fw-bold">Fasilitas Pesantren</h3>
+                <h3 class="fw-bold">Fasilitas Sekolah</h3>
             </div>
             <img src="{{ asset('assets\image\il-fasilitas.jpg') }}" class="img-fluid py-5" alt=""
                 data-aos="zoom-out-up">
