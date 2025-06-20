@@ -37,8 +37,7 @@
                                 <tr>
                                     <th scope="row">{{ $loop->iteration + $artikels->firstItem() - 1 }}</th>
                                     <td>
-                                        <img src="{{ asset('storage/artikel/' . $artikel->image) }}" class="rounded"
-                                            height="100" alt="Gambar {{ $artikel->judul }}">
+                                        <img src="{{ asset('storage/artikel/' . $artikel->image) }}" height="100">
                                     </td>
                                     <td class="fw-semibold">{{ Str::limit($artikel->judul, 50) }}</td>
                                     <td>{{ $artikel->user->name ?? 'N/A' }}</td>

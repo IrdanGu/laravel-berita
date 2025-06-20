@@ -1,6 +1,6 @@
 {{-- NavBar --}}
 <nav
-    class="navbar  navbar-expand-lg  py-3 fixed-top {{ Request::segment(1) == '' ? 'navbar-text-white' : 'bg-white shadow' }}">
+    class="navbar  navbar-expand-lg  py-3 fixed-top bg-white shadow {{ Request::segment(1) == '' ? '' : 'bg-white shadow' }}">
     <div class="container">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('assets/icon/ic-logo.png') }}" alt="Logo" width="55" height="55">

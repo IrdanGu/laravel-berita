@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\PublicPrestasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,7 @@ Route::delete('/blog/destroy/{id}', [BlogController::class, 'destroy'])->name('b
 
 // Route untuk mengelola Prestasi (CRUD)
 Route::resource('/dashboard/prestasi', PrestasiController::class)->middleware('auth');
+
+
+// Route untuk halaman prestasi publik
+Route::get('/prestasi', [PublicPrestasiController::class, 'index'])->name('prestasi.public');

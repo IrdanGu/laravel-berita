@@ -15,17 +15,15 @@ class BlogController extends Controller
 
     public function index()
     {
+        $artikels = Blog::with('user')->latest()->paginate(10);
 
-        // DENGAN baris ini:
-        $artikels = Blog::with('user')->latest()->paginate(10); // Menambahkan paginasi (misal: 10 item per halaman)
-
-        return view('admin.blog.index', compact('artikels'));
+        return view('dashboard.blog.index', compact('artikels'));
     }
 
     # Halaman Create
     public function create()
     {
-        return view('admin.blog.create');
+        return view('dashboard.blog.create');
     }
 
     # Fungsi Store
@@ -48,33 +46,36 @@ class BlogController extends Controller
 
         $this->validate($request, $rules, $messages);
 
-        $imageName = null;
+        // $imageName = null;
         // [LOGIKA BARU DARI ARTIKEL] Memproses gambar utama (cover)
         if ($request->hasFile('image')) {
-            // 1. Buat nama file yang unik
-            $imageName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName()) . '.' . $request->file('image')->getClientOriginalExtension();
+            // // 1. Buat nama file yang unik
+            // $imageName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName()) . '.' . $request->file('image')->getClientOriginalExtension();
 
-            // 2. Tentukan path penyimpanan
-            $path = 'public/artikel/';
-            $pathThumbnail = 'public/artikel/thumbnail/';
+            // // 2. Tentukan path penyimpanan
+            // $path = 'public/artikel/';
+            // $pathThumbnail = 'public/artikel/thumbnail/';
 
-            // Pastikan direktori ada
-            Storage::makeDirectory($path);
-            Storage::makeDirectory($pathThumbnail);
+            // // Pastikan direktori ada
+            // Storage::makeDirectory($path);
+            // Storage::makeDirectory($pathThumbnail);
 
-            // 3. Buat dan simpan gambar utama (misal, lebar maks 1200px)
-            $image = Image::read($request->file('image'));
-            $image->resize(1200, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            Storage::put($path . $imageName, (string) $image->encode());
+            // // 3. Buat dan simpan gambar utama (misal, lebar maks 1200px)
+            // $image = Image::read($request->file('image'));
+            // $image->resize(1200, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     $constraint->upsize();
+            // });
+            // Storage::put($path . $imageName, (string) $image->encode());
 
-            // 4. Buat dan simpan thumbnail (misal, lebar 300px)
-            $image->resize(300, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            Storage::put($pathThumbnail . $imageName, (string) $image->encode());
+            // // 4. Buat dan simpan thumbnail (misal, lebar 300px)
+            // $image->resize(300, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+            // Storage::put($pathThumbnail . $imageName, (string) $image->encode());
+            // Image
+            $fileName = time() . '.' . $request->image->extension();
+            $request->file('image')->storeAs('public/artikel', $fileName);
         }
 
         // [LOGIKA LAMA DIPERTAHANKAN & DIPERBAIKI] Memproses gambar dari dalam deskripsi (rich text editor)
@@ -113,7 +114,7 @@ class BlogController extends Controller
         Blog::create([
             'judul' => $request->judul,
             'slug' => Str::slug($request->judul, '-'),
-            'image' => $imageName,
+            'image' => $fileName,
             'desc' => $cleaned_desc,
         ]);
 
@@ -124,7 +125,7 @@ class BlogController extends Controller
     public function edit($id) // [PERBAIKAN] Menggunakan Route Model Binding
     {
         $artikel = Blog::find($id); // [PERBAIKAN] Menggunakan findOrFail untuk menangani jika ID tidak ditemukan
-        return view('admin.blog.edit', [
+        return view('dashboard.blog.edit', [
             'artikel' => $artikel,
         ]);
     }
@@ -165,30 +166,32 @@ class BlogController extends Controller
                 Storage::delete('public/artikel/thumbnail/' . $artikel->image);
             }
 
-            // 1. Buat nama file yang unik
-            $imageName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName()) . '.' . $request->file('image')->getClientOriginalExtension();
+            // // 1. Buat nama file yang unik
+            // $imageName = time() . '_' . Str::slug($request->file('image')->getClientOriginalName()) . '.' . $request->file('image')->getClientOriginalExtension();
 
-            // 2. Tentukan path penyimpanan
-            $path = 'public/artikel/';
-            $pathThumbnail = 'public/artikel/thumbnail/';
+            // // 2. Tentukan path penyimpanan
+            // $path = 'public/artikel/';
+            // $pathThumbnail = 'public/artikel/thumbnail/';
 
-            // Pastikan direktori ada
-            Storage::makeDirectory($path);
-            Storage::makeDirectory($pathThumbnail);
+            // // Pastikan direktori ada
+            // Storage::makeDirectory($path);
+            // Storage::makeDirectory($pathThumbnail);
 
-            // 3. Buat dan simpan gambar utama (misal, lebar maks 1200px)
-            $image = Image::read($request->file('image'));
-            $image->resize(1200, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            Storage::put($path . $imageName, (string) $image->encode());
+            // // 3. Buat dan simpan gambar utama (misal, lebar maks 1200px)
+            // $image = Image::read($request->file('image'));
+            // $image->resize(1200, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            //     $constraint->upsize();
+            // });
+            // Storage::put($path . $imageName, (string) $image->encode());
 
-            // 4. Buat dan simpan thumbnail (misal, lebar 300px)
-            $image->resize(300, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            Storage::put($pathThumbnail . $imageName, (string) $image->encode());
+            // // 4. Buat dan simpan thumbnail (misal, lebar 300px)
+            // $image->resize(300, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+            // Storage::put($pathThumbnail . $imageName, (string) $image->encode());
+            $fileName = time() . '.' . $request->image->extension();
+            $request->file('image')->storeAs('public/artikel', $fileName);
         }
 
         // [LOGIKA LAMA DIPERTAHANKAN & DIPERBAIKI] Memproses gambar dari dalam deskripsi (rich text editor)
@@ -227,7 +230,7 @@ class BlogController extends Controller
         $artikel->update([
             'judul' => $request->judul,
             'slug' => Str::slug($request->judul, '-'), // [PERBAIKAN] Update slug juga
-            'image' => $imageName,
+            'image' => $fileName,
             'desc' => $cleaned_desc,
         ]);
 

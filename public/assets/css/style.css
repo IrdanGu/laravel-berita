@@ -47,10 +47,10 @@ body {
 
 /* Hero */
 #hero {
-    background: url("../image/hero-image.jpeg");
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../../assets/image/suasanasekolah.jpg") no-repeat center center;
     background-size: cover;
-    background-position: center;
-    height: 600px;
+    height: 60vh;
 }
 
 .hero-title {

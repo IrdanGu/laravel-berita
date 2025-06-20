@@ -9,7 +9,7 @@
             </div>
 
 
-            <div class="row py-5" data-aos="flip-up">
+            <div class="row py-5">
                 @foreach ($artikels as $item)
                     <div class="col-lg-4">
                         <div class="card border-0">

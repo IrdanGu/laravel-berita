@@ -1,4 +1,4 @@
-@extends('layouts.layouts')
+@extends('layouts.layouts2')
 
 @section('content')
     <section class="py-5" style="margin-top: 100px">

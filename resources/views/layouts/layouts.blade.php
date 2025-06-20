@@ -48,8 +48,8 @@
                                         Sekolah</a></li>
                                 <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Gallery
                                         Sekolah</a></li>
-                                <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Kegiatan
-                                        Sosial</a></li>
+                                <li class="nav-item mb-2"><a href="/dashboard" class="nav-link p-0 text-muted">Dashboard
+                                    </a></li>
                             </ul>
                             <ul class="nav flex-column">
                                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Alumni</a>
@@ -83,10 +83,7 @@
                                     class="me-4" alt="TikTok">
                             </a>
 
-                            <a href="#" target="_blank" class="text-decoration-none text-dark">
-                                <img src="{{ asset('assets/icon/instagram.svg') }}" height="30" width="30"
-                                    class="me-4" alt="YouTube">
-                            </a>
+
                         </div>
                     </div>
 
@@ -98,10 +95,7 @@
                                     class="nav-link p-0 text-muted">info@cibutu.sch.id</a></li>
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-123-456</a>
                             </li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-123-456</a>
-                            </li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">021-123-456</a>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -142,10 +136,10 @@
             if (window.scrollY > 100) {
                 navbar.classList.add("scroll-nav-active");
                 navbar.classList.add("text-nav-active");
-                navbar.classList.remove("navbar-dark");
+                // navbar.classList.remove("navbar-dark");
             } else {
                 navbar.classList.remove("scroll-nav-active");
-                navbar.classList.add("navbar-dark");
+                // navbar.classList.add("navbar-dark");
             }
         };
         AOS.init();
