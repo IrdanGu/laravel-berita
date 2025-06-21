@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('assets\icon\ic-logo.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets\icon\cibuntu-logo.ico') }}">
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,7 +46,7 @@
                                         Sekolah</a></li>
                                 <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Kegiatan
                                         Sekolah</a></li>
-                                <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-muted">Gallery
+                                <li class="nav-item mb-2"><a href="/gallery" class="nav-link p-0 text-muted">Gallery
                                         Sekolah</a></li>
                                 <li class="nav-item mb-2"><a href="/dashboard" class="nav-link p-0 text-muted">Dashboard
                                     </a></li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 // [PERBAIKAN] Gunakan Facade yang benar dari Intervention Image
@@ -116,7 +117,9 @@ class BlogController extends Controller
             'slug' => Str::slug($request->judul, '-'),
             'image' => $fileName,
             'desc' => $cleaned_desc,
+            'user_id' => Auth::id(), // Tambahkan ini untuk mengaitkan user_id
         ]);
+
 
         return redirect()->route('blog')->with('success', 'Data berhasil disimpan!');
     }
@@ -230,8 +233,9 @@ class BlogController extends Controller
         $artikel->update([
             'judul' => $request->judul,
             'slug' => Str::slug($request->judul, '-'), // [PERBAIKAN] Update slug juga
-            'image' => $fileName,
+            'image' => $fileName ?? $artikel->image, // Gunakan gambar baru jika ada, atau tetap gunakan gambar lama
             'desc' => $cleaned_desc,
+            'user_id' => Auth::id(),
         ]);
 
         return redirect()->route('blog')->with('success', 'Data berhasil diperbarui!');

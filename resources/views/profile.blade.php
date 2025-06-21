@@ -81,58 +81,42 @@
 
 
     {{-- Struktur Organisasi Section --}}
-    <section id="struktur" class="py-5">
+    <section id="team" class="team section-bg">
         <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold">Struktur Organisasi</h2>
-                <p class="text-muted">Tim yang berdedikasi untuk memajukan SDN Cibuntu.</p>
+
+            <div class="section-title">
+                <h2>Struktur Organisasi</h2>
+                <p>Tim yang berdedikasi untuk memajukan sekolah kami.</p>
             </div>
-            <div class="row text-center">
-                {{-- Person 1: Kepala Sekolah --}}
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://placehold.co/300x300/6c757d/white?text=Foto" class="card-img-top"
-                            alt="Kepala Sekolah">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Budi Santoso, S.Pd.</h5>
-                            <p class="card-text text-muted">Kepala Sekolah</p>
+
+            <div class="row">
+                @if ($organization->count())
+                    @foreach ($organization as $member)
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                            <div class="member">
+                                <div class="member-img">
+                                    @if ($member->photo)
+                                        <img src="{{ asset('storage/' . $member->photo) }}" class="img-fluid"
+                                            alt="{{ $member->name }}">
+                                    @else
+                                        <img src="https://placehold.co/400x400/666/fff?text=Foto" class="img-fluid"
+                                            alt="{{ $member->name }}">
+                                    @endif
+                                </div>
+                                <div class="member-info">
+                                    <h4>{{ $member->name }}</h4>
+                                    <span>{{ $member->position }}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                {{-- Person 2: Wakasek Kurikulum --}}
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://placehold.co/300x300/6c757d/white?text=Foto" class="card-img-top"
-                            alt="Wakil Kepala Sekolah">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Siti Aminah, M.Pd.</h5>
-                            <p class="card-text text-muted">Wakasek Kurikulum</p>
-                        </div>
-                    </div>
-                </div>
-                {{-- Person 3: Wakasek Kesiswaan --}}
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://placehold.co/300x300/6c757d/white?text=Foto" class="card-img-top" alt="Staff">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Ahmad Fauzi, S.Ag.</h5>
-                            <p class="card-text text-muted">Wakasek Kesiswaan</p>
-                        </div>
-                    </div>
-                </div>
-                {{-- Person 4: Kepala TU --}}
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://placehold.co/300x300/6c757d/white?text=Foto" class="card-img-top" alt="Staff">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Rina Handayani</h5>
-                            <p class="card-text text-muted">Kepala Tata Usaha</p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @else
+                    <p class="text-center">Data struktur organisasi belum tersedia.</p>
+                @endif
             </div>
+
         </div>
-    </section>
+    </section><!-- End Team Section -->
     {{-- End Struktur Organisasi Section --}}
 
 

@@ -1,7 +1,8 @@
 <nav id="sidebar" class="sidebar bg-dark">
     <div class="d-flex flex-column p-3">
         <a href="/dashboard" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <img src="{{ asset('assets/icon/ic-logo.png') }}" alt="Logo" width="40" height="40" class="me-2">
+            <img src="{{ asset('assets/icon/cibuntu-logo.png') }}" alt="Logo" width="40" height="40"
+                class="me-2">
             <span class="fs-4">Admin Panel</span>
         </a>
         <hr class="text-white">
@@ -26,6 +27,20 @@
                 </a>
             </li>
             {{-- Tambahkan menu lain di sini --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/galleries*') ? 'active' : '' }}"
+                    href="/dashboard/galleries">
+                    <span data-feather="image"></span>
+                    Galeri
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/organization*') ? 'active' : '' }}"
+                    href="{{ route('dashboard.organization.index') }} ">
+                    <span data-feather="users"></span>
+                    Struktur Organisasi
+                </a>
+            </li>
         </ul>
         <hr class="text-white">
         <div>

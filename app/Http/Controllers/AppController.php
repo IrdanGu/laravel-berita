@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\OrganizationStructure;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -26,6 +27,14 @@ class AppController extends Controller
         $artikel = Blog::where('slug', $slug)->first();
         return view('berita.detail', [
             'artikel' => $artikel
+        ]);
+    }
+    public function profile()
+    {
+        return view('profile', [
+            'title' => 'Profil Sekolah',
+            'active' => 'profile',
+            'organization' => OrganizationStructure::orderBy('order')->get()
         ]);
     }
 }
